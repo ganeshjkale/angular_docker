@@ -28,8 +28,7 @@ pipeline{
                 withCredentials([usernamePassword(credentialsId: 'gkdockerhub', passwordVariable: 'gkdockerhubPassword', usernameVariable: 'gkdockerhubUser')]) {
                 sh "docker login -u ${env.gkdockerhubUser} -p ${env.gkdockerhubPassword}"
                 sh 'docker push ganeshkale/sample_angular:latest'
-        }
-
+                }
             }
         }
         stage("Test Docker Image"){      
@@ -38,9 +37,7 @@ pipeline{
                 //dont use -i
                 sh 'docker exec -t gktest bash -c "curl localhost:80"'
                 sh "docker stop gktest"
-                }
-                
-            }
+            }         
         }
     }
     post{
