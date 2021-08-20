@@ -34,9 +34,10 @@ pipeline{
         }
         stage("Test Docker Image"){      
             steps{
-                withDockerContainer("ganeshkale/sample_angular:latest") { 
-                    sh "curl localhost:80"
-                    
+                sh "docker run -itd --rm --name gktest -v /var/run/docker.sock:/var/run/docker.sock ganeshkale/sample_angular"
+                //dont use -i
+                sh 'docker exec -t gktest bash -c "curl localhost:80"'
+                sh "docker stop gktest"
                 }
                 
             }
