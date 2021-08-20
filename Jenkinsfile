@@ -40,6 +40,7 @@ pipeline{
                 }       
             }       
             steps{
+                sleep 100
                 sh "curl localhost:80"
             }
         }
