@@ -40,7 +40,6 @@ pipeline{
                 }       
             }       
             steps{
-                sh 'npm --version'
                 sh "curl localhost:80"
             }
         }
