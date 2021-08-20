@@ -35,7 +35,6 @@ pipeline{
         stage("Test Docker Image"){
             agent {         
                 docker {  
-                    label "ubuntu_vm"        
                     image 'ganeshkale/sample_angular:latest'         
                 }       
             }       
