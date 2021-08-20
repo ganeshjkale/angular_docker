@@ -32,16 +32,13 @@ pipeline{
 
             }
         }
-        stage("Test Docker Image"){
-            agent {         
-                docker {  
-                    image 'ganeshkale/sample_angular:latest'
-                    reuseNode true
-                }       
-            }       
+        stage("Test Docker Image"){      
             steps{
-                sleep 100
-                sh "curl localhost:80"
+                withDockerContainer("ganeshkale/sample_angular:latest") { 
+                    sh "curl localhost:80"
+                    
+                }
+                
             }
         }
     }
