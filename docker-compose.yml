@@ -1,13 +1,17 @@
-version: '3.4'
+version: '3.3'
 services:
   web:
+    #will build Dockerfile from current directory
     build: .
     labels:
       - "Angular app webhosting"
     ports:
+       #Mapping exposed port to host network port 
       - "80:80"
     networks:
+       #Separate bridge network 
       - webhost
+       #will restart always on os boottime or when docker service restarted
     restart: always
 
 networks:
