@@ -1,10 +1,10 @@
 pipeline{
     agent{
-        label "master"
+        node {
+            label "master"
+        }
     }
-    triggers{
-
-    }
+    
     stages{
         stage("Build Docker Image"){
             steps{
