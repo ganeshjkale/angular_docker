@@ -36,7 +36,7 @@ pipeline{
             agent {         
                 docker {  
                     image 'ganeshkale/sample_angular:latest'
-                    args '-p 80:80'         
+                    args '-p 8000:80'         
                 }       
             }       
             steps{
