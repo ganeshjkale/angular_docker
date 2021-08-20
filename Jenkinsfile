@@ -40,7 +40,7 @@ pipeline{
                 }       
             }       
             steps{
-                sh "curl localhost:80"
+                sh "curl localhost:8000"
             }
         }
     }
