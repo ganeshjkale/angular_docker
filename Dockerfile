@@ -15,3 +15,4 @@ FROM nginx:latest
 COPY --from=build /usr/local/webapp/dist/sample-angular-app /usr/share/nginx/html
 #eposing nginx port 80 to docker host machine
 EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
