@@ -36,12 +36,12 @@ pipeline{
             agent {         
                 docker {  
                     image 'ganeshkale/sample_angular:latest'
-                    args '-p 8000:80'         
+                    reuseNode true
                 }       
             }       
             steps{
-                //sh "curl localhost:8000"
                 sh 'npm --version'
+                sh "curl localhost:80"
             }
         }
     }
