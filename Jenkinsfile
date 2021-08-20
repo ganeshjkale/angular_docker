@@ -35,7 +35,8 @@ pipeline{
         stage("Test Docker Image"){
             agent {         
                 docker {  
-                    image 'ganeshkale/sample_angular:latest'         
+                    image 'ganeshkale/sample_angular:latest'
+                    args '-p 80:80'         
                 }       
             }       
             steps{
